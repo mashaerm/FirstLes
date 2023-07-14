@@ -183,3 +183,171 @@ void Task8()
     }
 
 }
+
+void Task9()
+{
+    //Напишите программу, которая выводит случайное число из отрезка [10, 99] и показывет наибольшую цифру числа
+
+    Random rnd = new Random();
+
+    int number = rnd.Next(10, 100);
+
+    Console.WriteLine($"Выпало случайное число: {number}");
+
+    int f_digit = number / 10;
+    int s_digit = number % 10;
+
+    int max;
+
+    if (f_digit > s_digit) max = f_digit;
+    else max = s_digit;
+
+    Console.WriteLine($"Наибольшая цифра числа: {max}");
+
+}
+
+void Task11()
+{
+    //Напишите программу, которая выводит случайное трехзначное число и удаляет вторую цифру этого числа
+
+    Random rnd = new Random();
+
+    int number = rnd.Next(100, 1000);
+
+    Console.WriteLine($"Выпало случайное число: {number}");
+
+    int f_digit = number / 100;
+    int t_digit = number % 10;
+
+    Console.WriteLine($"Число, без второй цифры: {f_digit}{t_digit}");
+
+}
+
+int Input(string text)
+{
+    Console.Write(text);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+void Task12()
+{
+    //Напишите программу, которая будет принимать на вход два числа и выводить, является ли второе число кратным первому. Если число 2 не кратно числу 1, то программа выводит остаток от деления
+
+    int number_f = Input("Введите первое число: ");
+
+    int number_s = Input("Введите второе число: ");
+
+    int div = number_s % number_f;
+
+    if (div == 0)
+    {
+        Console.WriteLine($"Число {number_s} кратно числу {number_f}");
+    }
+    else
+    {
+        Console.WriteLine($"Число {number_s} не кратно числу {number_f}. Остаток от деления равен {div}");
+    }
+
+}
+
+void Task14()
+{
+    //Напишите программу, которая будет принимать на вход число и проверяет, кратно ли оно одновременно 7 и 23
+    // & и | или && сокращенное и || сокращенное или
+
+    int number_f = Input("Введите первое число: ");
+
+    if (number_f % 7 == 0 && number_f % 23 == 0)
+    {
+        Console.WriteLine($"Число {number_f} одновременно кратно 7 и 23 ");
+    }
+    else
+    {
+        Console.WriteLine($"Число {number_f} одновременно не кратно 7 и 23 ");
+    }
+
+}
+
+void Task16()
+{
+    //Напишите программу, которая будет принимать на вход два числа и проверяет, является ли одно число квадратом другого
+
+    int number_f = Input("Введите первое число: ");
+
+    int number_s = Input("Введите второе число: ");
+
+    if (number_f * number_f == number_s || number_s * number_s == number_f)
+    {
+        Console.WriteLine("Одно число квадрат другого числа");
+    }
+    else
+    {
+        Console.WriteLine("Ни одно из чисел не квадрат другого числа");
+    }
+
+}
+
+void Task10()
+{
+    //Напишите программу, которая принимает на вход трехзначное число и на выходе показывает вторую цифру этого числа
+
+    int number = Input("Введите трехзначное число: ");
+
+    if (number >= 100 & number < 1000)
+    {
+        int f_digit = number / 10;
+        int s_digit = f_digit % 10;
+
+        Console.WriteLine($"Вторая цифра числа: {s_digit}");
+    }
+    
+    else
+
+    {
+        Console.WriteLine("Число не трехзначное");
+    }
+
+}
+
+void Task13()
+{
+    //Напишите программу, которая с помощью деления выводит третью цифру заданного числа или сообщает, что третьей цифры нет
+
+    int number = Input("Введите число: ");
+
+    number = Math.Abs(number);
+
+    if (number > 99)
+    {
+        while (number > 999)
+        {
+            number /= 10;
+        }
+        Console.WriteLine($"Третья цифра числа: {number % 10}");
+    }
+
+    else
+    {
+        Console.WriteLine("Третьей цифры нет");
+    }
+
+}
+void Task15()
+{
+    // Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным
+
+    int number = Input("Введите число: ");
+
+    if (number >= 1 & number <= 5) Console.WriteLine("Не выходной");
+    else if (number == 6 || number == 7) Console.WriteLine("Выходной");
+
+    else
+
+    {
+        Console.WriteLine("Нет такого дня недели");
+    }
+
+}
+
+Console.Clear();
+Task15();
